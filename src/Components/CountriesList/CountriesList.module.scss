@@ -1,0 +1,23 @@
+.cards {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .filter_button {
+        margin-bottom: 30px;
+        width: 300px;
+        font-size: 20px;
+        line-height:normal;
+        text-transform: none;
+        padding: 10px 10px;
+        box-shadow: none;
+    }
+
+    .list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
