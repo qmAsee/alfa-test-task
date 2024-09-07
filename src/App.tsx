@@ -8,8 +8,8 @@ function App () {
         <>
             <Router>
                 <Routes>
-                  <Route path="/" element={<CountriesList />} />
-                  <Route path="/country/:name" element={<CountryDetails />} />
+                  <Route path="/alfa-test-task" element={<CountriesList />} />
+                  <Route path="/alfa-test-task/:name" element={<CountryDetails />} />
                 </Routes>
             </Router>
         </>

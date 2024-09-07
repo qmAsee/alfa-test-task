@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import CountryCard from "../CountryCard/CountryCard";
-import { RootState, useAppDispatch, useAppSelector } from '../../store/store';
 import {
     getCountries,
     filterFavorites,
     Country,
 } from "../../store/slices/countriesSlice";
 import styles from "./CountriesList.module.scss";
+import { useAppSelector, useAppDispatch, RootState } from "../../store/store.ts";
 
 const CountriesList: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -19,7 +19,6 @@ const CountriesList: React.FC = () => {
         if (allCountries.length === 0) {
             dispatch(getCountries());
         }
-        console.log(countries);
     }, [dispatch, allCountries.length]);
 
     function handleFilterFavorites() {

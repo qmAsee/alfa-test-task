@@ -27,10 +27,8 @@ interface CountriesState {
 export const getCountries = createAsyncThunk<Country[], void, {rejectValue: string}>(
     "countries/getCountries",
     async (_, { rejectWithValue }) => {
-        
         try {
             const response = await axios.get("https://restcountries.com/v3.1/all");
-
             return response.data;  
         } catch (err) {
             return rejectWithValue((err as Error).message);
@@ -95,9 +93,9 @@ const countriesSlice = createSlice({
             state.countries = action.payload;
             state.allCountries = action.payload;
         });
-        builder.addCase(getCountries.rejected, (state, action: PayloadAction<string | undefined>) => {
+        builder.addCase(getCountries.rejected, (state, action) => {
             state.status = "rejected";
-            state.error = action.payload || null;
+            state.error = (action.payload as string) || action.error.message ||null;
         });
     },
 });

@@ -1,6 +1,5 @@
 import styles from './CountryCard.module.scss'
-import { RootState } from '../../store/store';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootState, useAppDispatch, useAppSelector } from '../../store/store';
 import { deleteCountry, toggleLikeCountry, Country } from '../../store/slices/countriesSlice'
 import { Card, CardMedia, Typography } from "@mui/material";
 import { FavoriteBorder, Favorite, Delete } from '@mui/icons-material';
@@ -11,9 +10,9 @@ interface CountryCardProps {
   }
 
 const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const likedCountries = useSelector((state: RootState) => state.countries.likedCountries);
+    const likedCountries = useAppSelector((state: RootState) => state.countries.likedCountries);
     const isLiked = likedCountries.includes(country.name.common);
      
      function handleDeleteCard(e: React.MouseEvent<SVGSVGElement>) {
@@ -27,7 +26,7 @@ const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
       }
 
      function handleCardClick() {
-        navigate(`/country/${country.name.common}`);
+        navigate(`/alfa-test-task/${country.name.common}`);
     }
 
     return (
